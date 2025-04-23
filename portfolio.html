@@ -4,18 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Robin's Portfolio</title>
+
+  <!-- Optional: CSS Link -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ✅ About Me -->
-  <section id="about">
+  <!-- About Me Section -->
+  <section id="about" class="animated-entry">
     <h2>About Me</h2>
     <p>Hello! I'm Robin, a passionate developer interested in backend systems, system design, and building efficient solutions.</p>
   </section>
 
-  <!-- ✅ Skills -->
-  <section id="skills">
+  <!-- Skills Section -->
+  <section id="skills" class="animated-entry">
     <h2>Skills</h2>
     <ul>
       <li>C++</li>
@@ -26,14 +28,14 @@
     </ul>
   </section>
 
-  <!-- ✅ Education -->
-  <section id="education">
+  <!-- Education Section -->
+  <section id="education" class="animated-entry">
     <h2>Education</h2>
     <p>Bachelor’s Degree – Computer Science, Batch 92</p>
   </section>
 
-  <!-- ✅ Projects -->
-  <section id="projects">
+  <!-- Projects Section -->
+  <section id="projects" class="animated-entry">
     <h2>Projects</h2>
     <ul>
       <li>Device Location Alert System – Tracks location of geo-enabled devices and sends alerts</li>
@@ -41,7 +43,7 @@
     </ul>
   </section>
 
-  <!-- ✅ Contact -->
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Me</h2>
     <form id="contact-form" action="#" method="POST">
@@ -54,9 +56,17 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="4" required></textarea>
 
+      <!-- reCAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="6LenjyArAAAAAA6zB0e1pLWsq5prvF_SIUVK6BlE"></div>
+
       <button type="submit">Send Message</button>
     </form>
   </section>
+
+  <!-- Chat Assistant -->
+  <div id="chat-assistant" onclick="alert('Chat Assistant Coming Soon!')">
+    💬
+  </div>
 
 </body>
 </html>
