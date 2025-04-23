@@ -1,57 +1,144 @@
-/* General Reset for margin and padding */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
-}
-
-/* Example Section Styles */
-section {
-  padding: 20px;
-  margin-bottom: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 h1, h2 {
   color: #333;
-  font-size: 24px;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Section Styling */
+section {
+  padding: 20px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+section h2 {
+  font-size: 1.8rem;
   margin-bottom: 10px;
 }
 
-p, ul {
-  font-size: 16px;
-  line-height: 1.6;
+section p, section ul {
+  font-size: 1rem;
 }
 
-ul {
-  list-style-type: none;
-}
-
-/* Animation class for visibility */
-.animated-entry {
-  opacity: 1; /* Ensure it's visible */
-  transform: translateY(0); /* Position it correctly */
-  transition: all 0.6s ease-out; /* Smooth transition */
+/* Contact Form Styling */
+#contact-form label {
   display: block;
-  unicode-bidi: isolate; /* Ensure correct display */
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-/* In case you want an initial hidden state with animation (optional) */
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+#contact-form button {
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#contact-form button:hover {
+  background-color: #555;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  section {
+    padding: 15px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.5rem;
+  }
+
+  #contact-form input,
+  #contact-form textarea {
+    font-size: 0.9rem;
+  }
+}
+
+/* Add Chat Assistant at the Bottom Right */
+#chat-assistant {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+#chat-assistant:hover {
+  background-color: #45a049;
+}
+
+/* Floating Effect for Content */
+.animated-entry {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease-out;
+  display: block;
+}
+
+/* Hidden Initial State (Used for Animation) */
 .animated-entry-hidden {
-  opacity: 0; /* Initially hidden */
-  transform: translateY(30px); /* Start below the view */
-  transition: all 0.6s ease-out; /* Smooth transition */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
 }
 
-/* Add a small delay if you'd like to stagger the animations */
-.animated-entry-hidden-delay {
-  transition-delay: 0.3s;
+/* Remove Blanks in Contact Section */
+#contact {
+  padding-bottom: 0;
+  background-color: #f8f8f8;
 }
