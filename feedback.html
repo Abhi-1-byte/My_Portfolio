@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+    .feedback-container {
+      max-width: 500px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+    }
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      font-size: 2em;
+      cursor: pointer;
+    }
+    .stars input[type="radio"] {
+      display: none;
+    }
+    .stars label {
+      color: lightgray;
+      transition: color 0.3s;
+    }
+    .stars input[type="radio"]:checked ~ label,
+    .stars label:hover,
+    .stars label:hover ~ label {
+      color: gold;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .thank-you {
+      display: none;
+      text-align: center;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="feedback-container">
+    <h2>We value your feedback!</h2>
+    <form action="https://formsubmit.co/abhigoud8459@gmail.com" method="POST" onsubmit="showThankYou()">
+      <div class="stars">
+        <input type="radio" id="star5" name="rating" value="5" required><label for="star5">&#9733;</label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4">&#9733;</label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3">&#9733;</label>
+        <input type="radio" id="star2" name="rating" value="2"><label for="star2">&#9733;</label>
+        <input type="radio" id="star1" name="rating" value="1"><label for="star1">&#9733;</label>
+      </div>
+
+      <label for="feedback">Your Feedback</label>
+      <textarea name="message" id="feedback" required></textarea>
+
+      <!-- FormSubmit extras -->
+      <input type="hidden" name="_next" value="https://abhi-1-byte.github.io/My_Portfolio/thankyou.html">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+</body>
+</html>
