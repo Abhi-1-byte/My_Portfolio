@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Robin's Portfolio</title>
-
-  <!-- Optional: CSS Link -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- About Me Section -->
-  <section id="about" class="animated-entry">
+  <!-- ✅ About Me -->
+  <section id="about">
     <h2>About Me</h2>
     <p>Hello! I'm Robin, a passionate developer interested in backend systems, system design, and building efficient solutions.</p>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="animated-entry">
+  <!-- ✅ Skills -->
+  <section id="skills">
     <h2>Skills</h2>
     <ul>
       <li>C++</li>
@@ -28,14 +26,14 @@
     </ul>
   </section>
 
-  <!-- Education Section -->
-  <section id="education" class="animated-entry">
+  <!-- ✅ Education -->
+  <section id="education">
     <h2>Education</h2>
     <p>Bachelor’s Degree – Computer Science, Batch 92</p>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="animated-entry">
+  <!-- ✅ Projects -->
+  <section id="projects">
     <h2>Projects</h2>
     <ul>
       <li>Device Location Alert System – Tracks location of geo-enabled devices and sends alerts</li>
@@ -43,9 +41,10 @@
     </ul>
   </section>
 
-  <!-- Contact Section -->
+  <!-- ✅ Contact -->
   <section id="contact">
     <h2>Contact Me</h2>
+    <p>Feel free to reach out via the form below:</p>
     <form id="contact-form" action="#" method="POST">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required />
@@ -56,16 +55,15 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="4" required></textarea>
 
-      <!-- reCAPTCHA -->
-      <div class="g-recaptcha" data-sitekey="6LenjyArAAAAAA6zB0e1pLWsq5prvF_SIUVK6BlE"></div>
-
       <button type="submit">Send Message</button>
     </form>
   </section>
 
-  <!-- Chat Assistant -->
-  <div id="chat-assistant" onclick="alert('Chat Assistant Coming Soon!')">
-    💬
+  <!-- ✅ Next to Feedback -->
+  <div style="text-align:center; margin-top: 40px;">
+    <a href="feedback.html">
+      <button style="padding: 10px 20px; font-size: 1rem; cursor: pointer;">Next</button>
+    </a>
   </div>
 
 </body>
