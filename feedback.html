@@ -3,52 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Feedback - Robin's Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Feedback</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .feedback-container {
+      max-width: 500px;
+      margin: 80px auto;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .feedback-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .stars {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      flex-direction: row;
+    }
+
+    .stars input[type="radio"] {
+      display: none;
+    }
+
+    .stars label {
+      font-size: 30px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s;
+      padding: 0 5px;
+    }
+
+    .stars input[type="radio"]:checked ~ label {
+      color: gold;
+    }
+
+    .stars label:hover,
+    .stars label:hover ~ label {
+      color: gold;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      resize: vertical;
+      min-height: 100px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .rating-labels {
+      text-align: center;
+      margin-top: -10px;
+      font-size: 14px;
+    }
+
+    .rating-labels span {
+      margin: 0 10px;
+    }
+  </style>
 </head>
 <body>
-
-  <section id="feedback">
-    <h2>Feedback</h2>
+  <div class="feedback-container">
+    <h2>Leave a Quick Impression</h2>
     <form action="https://formsubmit.co/abhigoud8459@gmail.com" method="POST">
-      <!-- ✅ Hidden to redirect -->
-      <input type="hidden" name="_next" value="https://abhi-1-byte.github.io/My_Portfolio/thankyou.html" />
-      <input type="hidden" name="_captcha" value="false" />
+      <!-- Hidden Redirect -->
+      <input type="hidden" name="_next" value="https://abhi-1-byte.github.io/My_Portfolio/thankyou.html">
 
-      <!-- ✅ Star Rating -->
-      <label>Rate Your Experience:</label>
-      <div class="star-rating">
-        <input type="radio" id="star1" name="rating" value="1" />
-        <label for="star1">&#9733;</label>
+      <!-- Hidden Subject -->
+      <input type="hidden" name="_subject" value="New Feedback from Portfolio!">
 
-        <input type="radio" id="star2" name="rating" value="2" />
-        <label for="star2">&#9733;</label>
+      <!-- Rating Section -->
+      <div class="stars">
+        <input type="radio" name="rating" id="star1" value="1">
+        <label for="star1" title="Good">&#9733;</label>
 
-        <input type="radio" id="star3" name="rating" value="3" />
-        <label for="star3">&#9733;</label>
+        <input type="radio" name="rating" id="star2" value="2">
+        <label for="star2" title="Excellent">&#9733;</label>
 
-        <input type="radio" id="star4" name="rating" value="4" />
-        <label for="star4">&#9733;</label>
+        <input type="radio" name="rating" id="star3" value="3">
+        <label for="star3" title="Best">&#9733;</label>
 
-        <input type="radio" id="star5" name="rating" value="5" />
-        <label for="star5">&#9733;</label>
+        <input type="radio" name="rating" id="star4" value="4">
+        <label for="star4" title="Great">&#9733;</label>
+
+        <input type="radio" name="rating" id="star5" value="5">
+        <label for="star5" title="Brilliant">&#9733;</label>
       </div>
 
-      <!-- ✅ Feedback Message -->
-      <label for="message">Your Feedback:</label>
-      <textarea id="message" name="message" rows="4" placeholder="Type your message..." required></textarea>
+      <div class="rating-labels">
+        <span>1 = Good</span>
+        <span>2 = Excellent</span>
+        <span>3 = Best</span>
+        <span>4 = Great</span>
+        <span>5 = Brilliant</span>
+      </div>
 
-      <!-- ✅ Email field (optional if needed for response) -->
-      <label for="email">Your Email (optional):</label>
-      <input type="email" id="email" name="email" placeholder="example@email.com" />
+      <!-- Optional Feedback -->
+      <textarea name="message" placeholder="Optional feedback..."></textarea>
 
-      <!-- ✅ Submit -->
-      <button type="submit">Submit Feedback</button>
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
     </form>
-  </section>
-
-  <!-- ✅ Chat Assistant -->
-  <div id="chat-btn" onclick="alert('Hi! Need help? 😊 This is your assistant.')">💬</div>
-
+  </div>
 </body>
 </html>
