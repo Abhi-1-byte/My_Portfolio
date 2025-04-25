@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 1000px;  /* Increased width to accommodate all options */
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -18,13 +18,13 @@
         .rating-container {
             display: flex;
             justify-content: space-between;
-            gap: 8px;  /* Reduced gap */
+            gap: 8px;
             margin: 30px 0;
         }
         .rating-option {
             flex: 1;
-            min-width: 0;  /* Crucial for preventing overflow */
-            padding: 12px 5px;  /* Reduced padding */
+            min-width: 0;
+            padding: 12px 5px;
             border: 2px solid #ddd;
             border-radius: 8px;
             text-align: center;
@@ -42,7 +42,7 @@
             box-shadow: 0 0 0 2px #bbdefb;
         }
         .rating-emoji {
-            font-size: 22px;  /* Slightly smaller emoji */
+            font-size: 22px;
             margin-bottom: 5px;
         }
         textarea {
@@ -71,22 +71,20 @@
             background-color: #0b7dda;
         }
         
-        /* Mobile view */
         @media (max-width: 768px) {
             .rating-container {
                 flex-wrap: wrap;
             }
             .rating-option {
-                flex: 1 0 48%;  /* Two items per row */
+                flex: 1 0 48%;
                 margin-bottom: 8px;
                 white-space: normal;
             }
         }
         
-        /* Small mobile view */
         @media (max-width: 480px) {
             .rating-option {
-                flex: 1 0 100%;  /* Full width */
+                flex: 1 0 100%;
             }
         }
     </style>
@@ -95,8 +93,10 @@
     <h1>Leave a Quick Impression</h1>
     
     <form action="https://formsubmit.co/abhigoud8459@gmail.com" method="POST">
+        <!-- FormSubmit Configuration -->
+        <input type="hidden" name="_next" value="thankyou.html">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="New Feedback Submission">
+        <input type="hidden" name="_subject" value="New Portfolio Feedback">
         
         <div class="rating-container">
             <label class="rating-option">
@@ -128,7 +128,7 @@
         
         <textarea name="feedback" placeholder="Optional feedback message..."></textarea>
         
-        <button id="submit-btn" type="submit">Submit Feedback</button>
+        <button type="submit" id="submit-btn">Submit Feedback</button>
     </form>
     
     <script>
