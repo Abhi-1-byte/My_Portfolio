@@ -9,63 +9,95 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       padding: 2rem;
-      background-color: #f9f9f9;
+      background-color: #f2f6fa;
     }
+
     h2 {
       text-align: center;
+      margin-bottom: 2rem;
       color: #333;
-      margin-bottom: 1.5rem;
     }
+
     form {
-      max-width: 600px;
+      max-width: 800px;
       margin: auto;
-      background: white;
+      background-color: #fff;
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
+
     .rating-options {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
+
     .rating-box {
-      flex: 1 1 100px;
       border: 2px solid #ccc;
-      border-radius: 10px;
-      padding: 1rem;
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
       text-align: center;
+      background-color: #f9f9f9;
       cursor: pointer;
       transition: all 0.3s ease;
-      background-color: #fafafa;
       user-select: none;
     }
+
+    .rating-box:hover {
+      background-color: #f0f8ff;
+    }
+
     .rating-box.selected {
       border-color: #007bff;
-      background-color: #e6f0ff;
+      background-color: #e0efff;
     }
-    .rating-box:hover {
-      background-color: #f0f0f0;
+
+    .rating-box div {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
+
+    .rating-box strong {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .rating-box input[type="radio"] {
+      display: none;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
     textarea {
       width: 100%;
       padding: 0.75rem;
       border: 1px solid #ccc;
       border-radius: 8px;
       resize: vertical;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
     }
+
     button {
+      display: block;
+      width: 100%;
+      padding: 0.9rem;
       background-color: #007bff;
-      color: white;
-      padding: 0.8rem 1.2rem;
       border: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
       border-radius: 8px;
       cursor: pointer;
-      width: 100%;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
       background-color: #0056b3;
     }
@@ -76,53 +108,54 @@
   <h2>Leave a Quick Impression</h2>
 
   <form action="https://formsubmit.co/abhigoud8459@gmail.com" method="POST">
-    <!-- Hidden to redirect -->
-    <input type="hidden" name="_next" value="thankyou.html" />
+    <input type="hidden" name="_next" value="thankyou.html">
 
-    <!-- Rating Options -->
     <div class="rating-options">
-      <div class="rating-box" onclick="selectBox(this)">
-        <input type="radio" name="rating" value="Good" hidden required />
+      <label class="rating-box" onclick="selectBox(this)">
+        <input type="radio" name="rating" value="Good" required />
         <div>⭐</div>
         <strong>Good</strong>
-      </div>
-      <div class="rating-box" onclick="selectBox(this)">
-        <input type="radio" name="rating" value="Excellent" hidden />
+      </label>
+
+      <label class="rating-box" onclick="selectBox(this)">
+        <input type="radio" name="rating" value="Excellent" />
         <div>🌟</div>
         <strong>Excellent</strong>
-      </div>
-      <div class="rating-box" onclick="selectBox(this)">
-        <input type="radio" name="rating" value="Best" hidden />
+      </label>
+
+      <label class="rating-box" onclick="selectBox(this)">
+        <input type="radio" name="rating" value="Best" />
         <div>🏅</div>
         <strong>Best</strong>
-      </div>
-      <div class="rating-box" onclick="selectBox(this)">
-        <input type="radio" name="rating" value="Great" hidden />
+      </label>
+
+      <label class="rating-box" onclick="selectBox(this)">
+        <input type="radio" name="rating" value="Great" />
         <div>🎯</div>
         <strong>Great</strong>
-      </div>
-      <div class="rating-box" onclick="selectBox(this)">
-        <input type="radio" name="rating" value="Brilliant" hidden />
+      </label>
+
+      <label class="rating-box" onclick="selectBox(this)">
+        <input type="radio" name="rating" value="Brilliant" />
         <div>💎</div>
         <strong>Brilliant</strong>
-      </div>
+      </label>
     </div>
 
-    <!-- Optional Message -->
-    <label for="message">Your Message (optional):</label>
-    <textarea name="message" id="message" rows="4" placeholder="Any thoughts or suggestions?"></textarea>
+    <label for="message">Your Message (optional)</label>
+    <textarea name="message" id="message" rows="4" placeholder="Share any thoughts you'd like..."></textarea>
 
     <button type="submit">Submit Feedback</button>
   </form>
 
   <script>
-    function selectBox(box) {
-      document.querySelectorAll('.rating-box').forEach(b => {
-        b.classList.remove('selected');
-        b.querySelector('input').checked = false;
+    function selectBox(selected) {
+      document.querySelectorAll('.rating-box').forEach(box => {
+        box.classList.remove('selected');
+        box.querySelector('input').checked = false;
       });
-      box.classList.add('selected');
-      box.querySelector('input').checked = true;
+      selected.classList.add('selected');
+      selected.querySelector('input').checked = true;
     }
   </script>
 
