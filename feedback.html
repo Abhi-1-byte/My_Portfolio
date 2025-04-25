@@ -4,128 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Feedback</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
-    .feedback-container {
-      max-width: 500px;
-      margin: 80px auto;
-      padding: 30px;
-      background: #fff;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      border-radius: 10px;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
     }
-
-    .feedback-container h2 {
+    h2 {
       text-align: center;
-      margin-bottom: 20px;
-      font-size: 24px;
+      color: #333;
+      margin-bottom: 1.5rem;
     }
-
-    .stars {
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .rating-options {
       display: flex;
-      justify-content: center;
-      margin: 20px 0;
-      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1rem;
     }
-
-    .stars input[type="radio"] {
-      display: none;
-    }
-
-    .stars label {
-      font-size: 30px;
-      color: #ccc;
+    .rating-box {
+      flex: 1 1 100px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
       cursor: pointer;
-      transition: color 0.2s;
-      padding: 0 5px;
+      transition: all 0.3s ease;
+      background-color: #fafafa;
+      user-select: none;
     }
-
-    .stars input[type="radio"]:checked ~ label {
-      color: gold;
+    .rating-box.selected {
+      border-color: #007bff;
+      background-color: #e6f0ff;
     }
-
-    .stars label:hover,
-    .stars label:hover ~ label {
-      color: gold;
+    .rating-box:hover {
+      background-color: #f0f0f0;
     }
-
     textarea {
       width: 100%;
-      padding: 10px;
-      resize: vertical;
-      min-height: 100px;
-      margin-bottom: 20px;
-      border-radius: 6px;
+      padding: 0.75rem;
       border: 1px solid #ccc;
-      font-size: 14px;
+      border-radius: 8px;
+      resize: vertical;
+      margin-bottom: 1rem;
     }
-
     button {
       background-color: #007bff;
       color: white;
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 0.8rem 1.2rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       width: 100%;
     }
-
     button:hover {
       background-color: #0056b3;
-    }
-
-    .rating-labels {
-      text-align: center;
-      margin-top: -10px;
-      font-size: 14px;
-    }
-
-    .rating-labels span {
-      margin: 0 10px;
     }
   </style>
 </head>
 <body>
-  <div class="feedback-container">
-    <h2>Leave a Quick Impression</h2>
-<p>How was your experience viewing my website?</p>
-<div class="rating">
-  <label>
-    <input type="radio" name="rating" value="1" required />
-    👍 Good
-  </label>
-  <label>
-    <input type="radio" name="rating" value="2" />
-    🌟 Excellent
-  </label>
-  <label>
-    <input type="radio" name="rating" value="3" />
-    🥇 Best
-  </label>
-  <label>
-    <input type="radio" name="rating" value="4" />
-    💡 Great
-  </label>
-  <label>
-    <input type="radio" name="rating" value="5" />
-    💎 Brilliant
-  </label>
-</div>
-      <div class="rating-labels">
-        <span>1 = Good</span>
-        <span>2 = Excellent</span>
-        <span>3 = Best</span>
-        <span>4 = Great</span>
-        <span>5 = Brilliant</span>
+
+  <h2>Leave a Quick Impression</h2>
+
+  <form action="https://formsubmit.co/abhigoud8459@gmail.com" method="POST">
+    <!-- Hidden to redirect -->
+    <input type="hidden" name="_next" value="thankyou.html" />
+
+    <!-- Rating Options -->
+    <div class="rating-options">
+      <div class="rating-box" onclick="selectBox(this)">
+        <input type="radio" name="rating" value="Good" hidden required />
+        <div>⭐</div>
+        <strong>Good</strong>
       </div>
+      <div class="rating-box" onclick="selectBox(this)">
+        <input type="radio" name="rating" value="Excellent" hidden />
+        <div>🌟</div>
+        <strong>Excellent</strong>
+      </div>
+      <div class="rating-box" onclick="selectBox(this)">
+        <input type="radio" name="rating" value="Best" hidden />
+        <div>🏅</div>
+        <strong>Best</strong>
+      </div>
+      <div class="rating-box" onclick="selectBox(this)">
+        <input type="radio" name="rating" value="Great" hidden />
+        <div>🎯</div>
+        <strong>Great</strong>
+      </div>
+      <div class="rating-box" onclick="selectBox(this)">
+        <input type="radio" name="rating" value="Brilliant" hidden />
+        <div>💎</div>
+        <strong>Brilliant</strong>
+      </div>
+    </div>
 
-      <!-- Optional Feedback -->
-      <textarea name="message" placeholder="Optional feedback..."></textarea>
+    <!-- Optional Message -->
+    <label for="message">Your Message (optional):</label>
+    <textarea name="message" id="message" rows="4" placeholder="Any thoughts or suggestions?"></textarea>
 
-      <!-- Submit Button -->
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+    <button type="submit">Submit Feedback</button>
+  </form>
+
+  <script>
+    function selectBox(box) {
+      document.querySelectorAll('.rating-box').forEach(b => {
+        b.classList.remove('selected');
+        b.querySelector('input').checked = false;
+      });
+      box.classList.add('selected');
+      box.querySelector('input').checked = true;
+    }
+  </script>
+
 </body>
 </html>
