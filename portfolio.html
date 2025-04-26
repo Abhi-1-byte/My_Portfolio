@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Portfolio</title>
+  <title>Abhi's Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* Inline Dark Mode Styles */
@@ -35,21 +35,26 @@
       background-color: #007bff;
     }
 
-    /* Dark Mode Toggle Button - Round */
-    #theme-toggle {
+    /* Dark Mode Toggle Button - Round and Positioned in Top-Right */
+        #theme-toggle {
       position: fixed;
       top: 20px;
       right: 20px;
+      width: 44px;
+      height: 44px;
       background-color: #007bff;
       color: white;
       border: none;
-      padding: 12px;
       border-radius: 50%;
       cursor: pointer;
-      z-index: 1000;
+      z-index: 9999; /* Increased z-index */
       font-size: 1.2rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
     }
 
     #theme-toggle:hover {
