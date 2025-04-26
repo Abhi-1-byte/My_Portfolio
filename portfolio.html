@@ -28,11 +28,32 @@
     }
 
     body.dark-mode #chatbox div:first-child {
-      background-color: #0d6efd;
+      background-color: #007bff;
     }
 
     body.dark-mode button {
-      background-color: #0d6efd;
+      background-color: #007bff;
+    }
+
+    /* Dark Mode Toggle Button */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+
+    #theme-toggle:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
@@ -40,9 +61,7 @@
 <body>
 
   <!-- ✅ Theme Toggle Button -->
-  <button id="theme-toggle" style="position: fixed; top: 20px; right: 20px; background-color: #007bff; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; z-index: 1000;">
-    🌙 Dark Mode
-  </button>
+  <button id="theme-toggle">🌙</button>
 
   <!-- Sections -->
   <section id="about">
@@ -80,8 +99,8 @@
   </section>
 
   <section id="feedback-link">
-    <h2>Want to give feedback?</h2>
-    <button onclick="window.location.href='feedback.html'" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">Next</button>
+    <h2>Contact Me</h2>
+    <button onclick="window.location.href='feedback.html'" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">Next</button>
   </section>
 
   <!-- ✅ Chat Assistant Button -->
@@ -139,13 +158,13 @@
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       if (document.body.classList.contains('dark-mode')) {
-        toggleBtn.innerHTML = '🌞 Light Mode';
+        toggleBtn.innerHTML = '🌤️';
       } else {
-        toggleBtn.innerHTML = '🌙 Dark Mode';
+        toggleBtn.innerHTML = '🌤';
       }
     });
 
-    // ✅ Reveal sections on scroll (already existing script)
+    // ✅ Reveal sections on scroll
     const sections = document.querySelectorAll("section");
 
     function revealOnScroll() {
