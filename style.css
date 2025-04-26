@@ -103,6 +103,72 @@ button:hover {
   transform: scale(1.1);
 }
 
+/* Chatbox Styling */
+#chatbox {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+#chatbox-header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#chatbox-messages {
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+}
+
+.bot-message, .user-message {
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.bot-message {
+  background-color: #d4ffd4;
+}
+
+.user-message {
+  background-color: #f1f1f1;
+}
+
+/* Chatbox Input Area */
+#chatbox-input-area {
+  display: flex;
+  padding: 10px;
+}
+
+#chatbox-input-area input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#chatbox-input-area button {
+  margin-left: 5px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
 /* Star Rating */
 .star-rating {
   display: flex;
