@@ -43,15 +43,15 @@
       background-color: #007bff;
       color: white;
       border: none;
-      padding: 12px;
+      padding: 0;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       cursor: pointer;
       z-index: 1000;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       transition: background-color 0.3s;
-      width: 44px;
-      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -60,13 +60,30 @@
     #theme-toggle:hover {
       background-color: #0056b3;
     }
+
+    /* Emoji toggle solution */
+    #theme-toggle .emoji {
+      display: block;
+    }
+    #theme-toggle .dark-emoji {
+      display: none;
+    }
+    body.dark-mode #theme-toggle .emoji {
+      display: none;
+    }
+    body.dark-mode #theme-toggle .dark-emoji {
+      display: block;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- ✅ Theme Toggle Button -->
-  <button id="theme-toggle">🌙</button>
+  <!-- Theme Toggle Button with dual emoji elements -->
+  <button id="theme-toggle">
+    <span class="emoji">🌙</span>
+    <span class="dark-emoji">🌞</span>
+  </button>
 
   <!-- Sections -->
   <section id="about">
@@ -108,12 +125,12 @@
     <button onclick="window.location.href='feedback.html'" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">Next</button>
   </section>
 
-  <!-- ✅ Chat Assistant Button -->
+  <!-- Chat Assistant Button -->
   <div id="chat-btn">
     💬
   </div>
 
-  <!-- ✅ Chatbox Window -->
+  <!-- Chatbox Window -->
   <div id="chatbox" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; background: white; border: 1px solid #ccc; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 12px; z-index: 999;">
     <div style="background-color: #007bff; color: white; padding: 10px; font-weight: bold; border-top-left-radius: 12px; border-top-right-radius: 12px;">Chat Assistant</div>
 
@@ -130,7 +147,7 @@
   <!-- Scripts -->
   <script src="script.js"></script>
 
-  <!-- ✅ Chatbox and Theme Toggle Scripts -->
+  <!-- Chatbox and Theme Toggle Scripts -->
   <script>
     // Chatbox open/close
     document.getElementById('chat-btn').onclick = function () {
@@ -158,23 +175,12 @@
       }
     }
 
-    // ✅ Dark Mode Toggle
-      const toggleBtn = document.getElementById('theme-toggle');
-    toggleBtn.addEventListener('click', () => {
+    // Dark Mode Toggle - Pure CSS solution
+    document.getElementById('theme-toggle').addEventListener('click', function() {
       document.body.classList.toggle('dark-mode');
-      // Store preference in localStorage
-      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-      // Update emoji
-      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
 
-    // Check for saved preference on load
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark-mode');
-      toggleBtn.textContent = '☀️';
-    }
-
-    // ✅ Reveal sections on scroll
+    // Reveal sections on scroll
     const sections = document.querySelectorAll("section");
 
     function revealOnScroll() {
