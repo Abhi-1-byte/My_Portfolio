@@ -3,120 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Abhi's Portfolio</title>
+  <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Inline Dark Mode Styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #f5f5f5;
+    }
+
+    body.dark-mode section {
+      background-color: #1e1e1e;
+      color: #f5f5f5;
+    }
+
+    body.dark-mode #chatbox {
+      background-color: #1e1e1e;
+      color: white;
+      border-color: #333;
+    }
+
+    body.dark-mode #chatbox-messages div {
+      background-color: #2a2a2a !important;
+    }
+
+    body.dark-mode #chatbox div:first-child {
+      background-color: #0d6efd;
+    }
+
+    body.dark-mode button {
+      background-color: #0d6efd;
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- ✅ About Me -->
+  <!-- ✅ Theme Toggle Button -->
+  <button id="theme-toggle" style="position: fixed; top: 20px; right: 20px; background-color: #007bff; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; z-index: 1000;">
+    🌙 Dark Mode
+  </button>
+
+  <!-- Sections -->
   <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm Atikam Abhilash Goud, a passionate developer interested in backend systems, system design, and building efficient solutions.</p>
+    <h1>About Me</h1>
+    <p>Hello! I'm Robin, a passionate learner and developer.</p>
   </section>
 
-  <!-- ✅ Skills -->
   <section id="skills">
     <h2>Skills</h2>
     <ul>
       <li>C++</li>
+      <li>Data Structures</li>
       <li>Python</li>
-      <li>Data Structures & Algorithms</li>
-      <li>System Design (Beginner)</li>
-      <li>Git & GitHub</li>
+      <li>System Design (Learning)</li>
     </ul>
   </section>
 
-  <!-- ✅ Education -->
-  <section id="education">
-    <h2>Education</h2>
-    <P>DSA – Scaler Academy</P>
-    <p>Bachelor’s Degree – Electrical & Electronics Engineering, Gurunanak Institute of Technology</p>
-    <P>Intermediate – S.R.junior College[MPC]</P>
-  </section>
-
-  <!-- ✅ Projects -->
   <section id="projects">
     <h2>Projects</h2>
     <ul>
-      <li>Device Location Alert System – Tracks location of geo-enabled devices and sends alerts</li>
-      <li>Personal GPT System – Created a local, cost-free version of GPT for personal use</li>
+      <li>Location Tracker</li>
+      <li>Portfolio Website</li>
+      <li>Personal GPT</li>
     </ul>
   </section>
 
-  <!-- ✅ Contact -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Feel free to reach out via the form below:</p>
-    <form id="contact-form" action="#" method="POST">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <p>Currently building personal projects and enhancing skills.</p>
   </section>
 
-  <!-- ✅ Next to Feedback -->
-  <div style="text-align:center; margin-top: 40px;">
-    <a href="feedback.html">
-      <button style="padding: 10px 20px; font-size: 1rem; cursor: pointer;">Next</button>
-    </a>
-  </div>
+  <section id="education">
+    <h2>Education</h2>
+    <p>Batch 92 | Pursuing Advanced Tech Learning</p>
+  </section>
+
+  <section id="feedback-link">
+    <h2>Want to give feedback?</h2>
+    <button onclick="window.location.href='feedback.html'" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">Next</button>
+  </section>
 
   <!-- ✅ Chat Assistant Button -->
-  <div id="chat-btn" style="position: fixed; bottom: 20px; right: 20px; background-color: #007bff; color: white; width: 50px; height: 50px; border-radius: 50%; text-align: center; line-height: 50px; font-size: 24px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); cursor: pointer; z-index: 999; transition: transform 0.2s ease;">
+  <div id="chat-btn">
     💬
   </div>
 
   <!-- ✅ Chatbox Window -->
-  <div id="chatbox" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; background: white; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 10px; z-index: 999;">
-    <div style="background-color: #4CAF50; color: white; padding: 10px; font-weight: bold; border-top-left-radius: 10px; border-top-right-radius: 10px;">Chat Assistant</div>
-    
-    <div id="chatbox-messages" style="padding: 10px; height: 200px; overflow-y: auto;">
+  <div id="chatbox" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; background: white; border: 1px solid #ccc; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 12px; z-index: 999;">
+    <div style="background-color: #007bff; color: white; padding: 10px; font-weight: bold; border-top-left-radius: 12px; border-top-right-radius: 12px;">Chat Assistant</div>
+
+    <div id="chatbox-messages" style="padding: 10px; height: 220px; overflow-y: auto;">
       <div style="background-color: #eee; padding: 8px; border-radius: 5px; margin-bottom: 5px;">Hi there! How can I help you today?</div>
     </div>
 
-    <div style="display: flex; padding: 10px;">
-      <input type="text" id="user-input" placeholder="Type your message..." style="flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 5px;">
-      <button onclick="sendMessage()" style="margin-left: 5px; background-color: #4CAF50; color: white; border: none; padding: 6px 10px; border-radius: 5px;">Send</button>
+    <div style="display: flex; align-items: center; padding: 10px; gap: 5px;">
+      <input type="text" id="user-input" placeholder="Type your message..." style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem;">
+      <button onclick="sendMessage()" style="background-color: #007bff; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-size: 0.9rem; cursor: pointer;">Send</button>
     </div>
   </div>
 
+  <!-- Scripts -->
+  <script src="script.js"></script>
+
+  <!-- ✅ Chatbox and Theme Toggle Scripts -->
   <script>
-    // Toggle Chatbox open/close
-    document.getElementById('chat-btn').onclick = function() {
+    // Chatbox open/close
+    document.getElementById('chat-btn').onclick = function () {
       var chatbox = document.getElementById('chatbox');
       chatbox.style.display = (chatbox.style.display === 'none' || chatbox.style.display === '') ? 'block' : 'none';
     };
 
-    // Send Message
     function sendMessage() {
       var input = document.getElementById('user-input');
       var messages = document.getElementById('chatbox-messages');
 
       if (input.value.trim() !== '') {
-        // User message
         var userMessage = document.createElement('div');
         userMessage.textContent = input.value;
         userMessage.style = 'background-color: #f1f1f1; padding: 8px; margin-top: 5px; border-radius: 5px;';
         messages.appendChild(userMessage);
 
-        // Bot reply
         var botReply = document.createElement('div');
         botReply.textContent = 'Thanks! I will get back to you.';
-        botReply.style = 'background-color: #d4ffd4; padding: 8px; margin-top: 5px; border-radius: 5px;';
+        botReply.style = 'background-color: #007bff; color: white; padding: 8px; margin-top: 5px; border-radius: 5px;';
         messages.appendChild(botReply);
 
-        // Reset
         input.value = '';
         messages.scrollTop = messages.scrollHeight;
       }
     }
+
+    // ✅ Dark Mode Toggle
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        toggleBtn.innerHTML = '🌞 Light Mode';
+      } else {
+        toggleBtn.innerHTML = '🌙 Dark Mode';
+      }
+    });
+
+    // ✅ Reveal sections on scroll (already existing script)
+    const sections = document.querySelectorAll("section");
+
+    function revealOnScroll() {
+      const scrollY = window.scrollY + window.innerHeight;
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (scrollY > sectionTop + 100) {
+          section.classList.add("visible");
+        }
+      });
+    }
+
+    document.addEventListener("scroll", revealOnScroll);
+    document.addEventListener("DOMContentLoaded", revealOnScroll);
   </script>
 
 </body>
