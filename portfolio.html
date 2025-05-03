@@ -6,7 +6,7 @@
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Inline Dark Mode Styles */
+    /* DARK MODE STYLES */
     body.dark-mode {
       background-color: #121212;
       color: #f5f5f5;
@@ -17,25 +17,11 @@
       color: #f5f5f5;
     }
 
-    body.dark-mode #chatbox {
-      background-color: #1e1e1e;
-      color: white;
-      border-color: #333;
-    }
-
-    body.dark-mode #chatbox-messages div {
-      background-color: #2a2a2a !important;
-    }
-
-    body.dark-mode #chatbox div:first-child {
-      background-color: #007bff;
-    }
-
     body.dark-mode button {
       background-color: #007bff;
     }
 
-    /* Dark Mode Toggle Button - Round */
+    /* THEME TOGGLE */
     #theme-toggle {
       position: fixed;
       top: 20px;
@@ -61,7 +47,6 @@
       background-color: #0056b3;
     }
 
-    /* Emoji toggle solution */
     #theme-toggle .emoji {
       display: block;
     }
@@ -74,18 +59,155 @@
     body.dark-mode #theme-toggle .dark-emoji {
       display: block;
     }
+
+    /* CHAT ASSISTANT STYLES */
+    #chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    #chatbox {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      max-height: 60vh;
+      border: 1px solid #ddd;
+    }
+
+    body.dark-mode #chatbox {
+      background: #1e1e1e;
+      border-color: #333;
+    }
+
+    .chat-header {
+      background: #007bff;
+      color: white;
+      padding: 12px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      font-weight: bold;
+    }
+
+    body.dark-mode .chat-header {
+      background: #0056b3;
+    }
+
+    #chat-messages {
+      padding: 12px;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    .chat-option {
+      display: block;
+      background: #f5f5f5;
+      padding: 10px 15px;
+      margin: 8px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    body.dark-mode .chat-option {
+      background: #2a2a2a;
+      color: white;
+    }
+
+    .chat-option:hover {
+      background: #e0e0e0;
+    }
+
+    body.dark-mode .chat-option:hover {
+      background: #333;
+    }
+
+    .chat-content {
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    body.dark-mode .chat-content {
+      background: #252525;
+      color: white;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+      padding: 12px;
+      border-top: 1px solid #eee;
+    }
+
+    body.dark-mode .nav-buttons {
+      border-color: #333;
+    }
+
+    .back-btn, .main-btn {
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      flex: 1;
+      text-align: center;
+    }
+
+    .back-btn {
+      background: #e0e0e0;
+    }
+
+    body.dark-mode .back-btn {
+      background: #333;
+      color: white;
+    }
+
+    .main-btn {
+      background: #007bff;
+      color: white;
+    }
+
+    .chat-link {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    body.dark-mode .chat-link {
+      color: #4da6ff;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- Theme Toggle Button with dual emoji elements -->
+  <!-- Theme Toggle Button -->
   <button id="theme-toggle">
     <span class="emoji">🌙</span>
     <span class="dark-emoji">🌞</span>
   </button>
 
-  <!-- Sections -->
+  <!-- Portfolio Sections -->
   <section id="about">
     <h1>About Me</h1>
     <p>Hello! I'm Robin, a passionate learner and developer.</p>
@@ -125,64 +247,146 @@
     <button onclick="window.location.href='feedback.html'" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">Next</button>
   </section>
 
-  <!-- Chat Assistant Button -->
-  <div id="chat-btn">
-    💬
-  </div>
-
-  <!-- Chatbox Window -->
-  <div id="chatbox" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; background: white; border: 1px solid #ccc; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 12px; z-index: 999;">
-    <div style="background-color: #007bff; color: white; padding: 10px; font-weight: bold; border-top-left-radius: 12px; border-top-right-radius: 12px;">Chat Assistant</div>
-
-    <div id="chatbox-messages" style="padding: 10px; height: 220px; overflow-y: auto;">
-      <div style="background-color: #eee; padding: 8px; border-radius: 5px; margin-bottom: 5px;">Hi there! How can I help you today?</div>
-    </div>
-
-    <div style="display: flex; align-items: center; padding: 10px; gap: 5px;">
-      <input type="text" id="user-input" placeholder="Type your message..." style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem;">
-      <button onclick="sendMessage()" style="background-color: #007bff; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-size: 0.9rem; cursor: pointer;">Send</button>
+  <!-- Chat Assistant -->
+  <div id="chat-btn">💬</div>
+  <div id="chatbox">
+    <div class="chat-header">Chat Assistant</div>
+    <div id="chat-messages"></div>
+    <div class="nav-buttons">
+      <div class="back-btn" onclick="handleBack()">↩ Back</div>
+      <div class="main-btn" onclick="showMainMenu()">🏠 Main Page</div>
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
-
-  <!-- Chatbox and Theme Toggle Scripts -->
   <script>
-    // Chatbox open/close
-    document.getElementById('chat-btn').onclick = function () {
-      var chatbox = document.getElementById('chatbox');
-      chatbox.style.display = (chatbox.style.display === 'none' || chatbox.style.display === '') ? 'block' : 'none';
+    // CHAT DATA (YOUR ACTUAL CONTENT)
+    const chatData = {
+      education: {
+        "B.Tech (EEE)": `
+          🎓 <b>B.Tech in Electrical & Electronics Engineering</b>
+          <br>• Institution: Gurunanak Institute of Technology, JNTUH
+          <br>• Year: 2023
+        `,
+        "Intermediate (MPC)": `
+          📘 <b>Intermediate Education</b>
+          <br>• College: S.R Junior College
+          <br>• Year: 2019
+        `,
+        "SSC": `
+          📗 <b>Secondary Education</b>
+          <br>• School: St. Anthony's High School
+          <br>• Year: 2017
+        `
+      },
+      skills: {
+        "AI Literacy": "🤖 <b>AI & Prompt Engineering</b>",
+        "DSA": `
+          ⚙️ <b>Data Structures & Algorithms</b>
+          <br>• Certified from Scaler Academy (2025)
+        `,
+        "System Design": "🗃️ <b>System Design Fundamentals</b>",
+        "Programming": `
+          ⌨️ <b>Languages</b>
+          <br>• Python
+          <br>• C++
+        `,
+        "Tools": `
+          🛠️ <b>Development Tools</b>
+          <br>• Git & GitHub
+          <br>• VS Code
+        `
+      },
+      projects: {
+        "Portfolio Website": `
+          🌐 <b>My Portfolio</b>
+          <br>• Tools: HTML, CSS, JavaScript
+          <br>• <a href="https://github.com/yourusername/portfolio" class="chat-link" target="_blank">GitHub Repository</a>
+        `,
+        "Loco Guard": `
+          🚄 <b>Loco Guard Project</b>
+          <br>• Railway safety system
+          <br>• <a href="https://github.com/yourusername/loco-guard" class="chat-link" target="_blank">GitHub Repository</a>
+        `
+      },
+      contact: {
+        "Email": `
+          📧 <b>Email Address</b>
+          <br>• <a href="mailto:abhigoud8459@gmail.com" class="chat-link">abhigoud8459@gmail.com</a>
+        `,
+        "LinkedIn": `
+          💼 <b>LinkedIn Profile</b>
+          <br>• <a href="https://linkedin.com/in/yourprofile" class="chat-link" target="_blank">linkedin.com/in/yourprofile</a>
+        `,
+        "GitHub": `
+          </> <b>GitHub Profile</b>
+          <br>• <a href="https://github.com/yourusername" class="chat-link" target="_blank">github.com/yourusername</a>
+        `
+      }
     };
 
-    function sendMessage() {
-      var input = document.getElementById('user-input');
-      var messages = document.getElementById('chatbox-messages');
+    // CHAT FUNCTIONALITY
+    let currentMenu = null;
+    let currentSubMenu = null;
 
-      if (input.value.trim() !== '') {
-        var userMessage = document.createElement('div');
-        userMessage.textContent = input.value;
-        userMessage.style = 'background-color: #f1f1f1; padding: 8px; margin-top: 5px; border-radius: 5px;';
-        messages.appendChild(userMessage);
+    document.getElementById('chat-btn').onclick = function() {
+      const chatbox = document.getElementById('chatbox');
+      chatbox.style.display = chatbox.style.display === 'none' ? 'flex' : 'none';
+      if (chatbox.style.display === 'flex' && !currentMenu) {
+        showMainMenu();
+      }
+    };
 
-        var botReply = document.createElement('div');
-        botReply.textContent = 'Thanks! I will get back to you.';
-        botReply.style = 'background-color: #007bff; color: white; padding: 8px; margin-top: 5px; border-radius: 5px;';
-        messages.appendChild(botReply);
+    function showMainMenu() {
+      currentMenu = null;
+      currentSubMenu = null;
+      document.getElementById('chat-messages').innerHTML = `
+        <div style="margin-bottom: 15px;">Hi! What would you like to know about me?</div>
+        <div class="chat-option" onclick="selectMenu('education')">📚 Education</div>
+        <div class="chat-option" onclick="selectMenu('skills')">💻 Skills</div>
+        <div class="chat-option" onclick="selectMenu('projects')">🛠 Projects</div>
+        <div class="chat-option" onclick="selectMenu('contact')">📞 Contact</div>
+      `;
+      document.querySelector('.nav-buttons').style.display = 'none';
+    }
 
-        input.value = '';
-        messages.scrollTop = messages.scrollHeight;
+    function selectMenu(menu) {
+      currentMenu = menu;
+      document.querySelector('.nav-buttons').style.display = 'flex';
+      document.getElementById('chat-messages').innerHTML = `
+        <div style="margin-bottom: 15px;">Select an option:</div>
+        ${Object.keys(chatData[menu]).map(item => `
+          <div class="chat-option" onclick="showContent('${menu}', '${item}')">
+            ${item}
+          </div>
+        `).join('')}
+      `;
+    }
+
+    function showContent(menu, item) {
+      currentSubMenu = item;
+      document.getElementById('chat-messages').innerHTML = `
+        <div class="chat-content">
+          ${chatData[menu][item]}
+        </div>
+      `;
+    }
+
+    function handleBack() {
+      if (currentSubMenu) {
+        selectMenu(currentMenu);
+        currentSubMenu = null;
+      } else {
+        showMainMenu();
       }
     }
 
-    // Dark Mode Toggle - Pure CSS solution
+    // DARK MODE TOGGLE
     document.getElementById('theme-toggle').addEventListener('click', function() {
       document.body.classList.toggle('dark-mode');
     });
 
-    // Reveal sections on scroll
+    // SCROLL ANIMATIONS
     const sections = document.querySelectorAll("section");
-
     function revealOnScroll() {
       const scrollY = window.scrollY + window.innerHeight;
       sections.forEach((section) => {
@@ -192,10 +396,11 @@
         }
       });
     }
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("DOMContentLoaded", revealOnScroll);
 
-    document.addEventListener("scroll", revealOnScroll);
-    document.addEventListener("DOMContentLoaded", revealOnScroll);
+    // INITIALIZE
+    showMainMenu();
   </script>
-
 </body>
 </html>
