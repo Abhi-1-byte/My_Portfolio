@@ -52,9 +52,23 @@
       align-items: center;
     }
 
-    .icons i {
+    .icons a {
+      color: white;
+      text-decoration: none;
       margin: 0 10px;
+    }
+
+    body.dark-mode .icons a {
+      color: #00bfff;
+    }
+
+    .icons i {
       cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .icons i:hover {
+      transform: scale(1.2);
     }
 
     .dark-toggle {
@@ -287,11 +301,11 @@
   <div class="blue-box">
     <div class="logo">Atikam Abhilash Goud</div>
     <div class="icons">
-      <i class="fab fa-github" title="GitHub"></i>
-      <i class="fab fa-linkedin" title="LinkedIn"></i>
-      <i class="fab fa-instagram" title="Instagram"></i>
-      <i class="fas fa-envelope" title="Email"></i>
-      <i class="fas fa-phone" title="Phone"></i>
+      <a href="https://github.com/abhi-1-byte" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/atikam-abhilash-goud-aa7a021b3" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/urs__abhii__?igsh=d2dtNnRqM25oMTJp" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:abhigoud8459@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+916309719726" title="Phone"><i class="fas fa-phone"></i></a>
       <button class="dark-toggle" onclick="toggleDarkMode()">☀︎</button>
     </div>
   </div>
@@ -307,10 +321,10 @@
   
    <section id="skills">
     <h2>Skills</h2>
-      <p>➥ C++<p>
-      <p>➥ Data Structures<p>
-      <p>➥ Python<p>
-      <p>➥ System Design (Learning)<p>
+      <p>➥ C++</p>
+      <p>➥ Data Structures</p>
+      <p>➥ Python</p>
+      <p>➥ System Design (Learning)</p>
   </section>
      
   <section id="projects">
@@ -403,12 +417,12 @@
         "Portfolio Website": `
           🌐 <b>My Portfolio</b>
           <br>• Tools: HTML, CSS, JavaScript
-          <br>• <a href="https://github.com/yourusername/portfolio" class="chat-link" target="_blank">GitHub Repository</a>
+          <br>• <a href="https://github.com/abhi-1-byte/portfolio" class="chat-link" target="_blank">GitHub Repository</a>
         `,
         "Loco Guard": `
           🚄 <b>Loco Guard Project</b>
           <br>• Railway safety system
-          <br>• <a href="https://github.com/yourusername/loco-guard" class="chat-link" target="_blank">GitHub Repository</a>
+          <br>• <a href="https://github.com/abhi-1-byte/loco-guard" class="chat-link" target="_blank">GitHub Repository</a>
         `
       },
       contact: {
@@ -418,11 +432,15 @@
         `,
         "LinkedIn": `
           💼 <b>LinkedIn Profile</b>
-          <br>• <a href="https://linkedin.com/in/yourprofile" class="chat-link" target="_blank">linkedin.com/in/yourprofile</a>
+          <br>• <a href="https://linkedin.com/in/atikam-abhilash-goud-aa7a021b3" class="chat-link" target="_blank">linkedin.com/in/atikam-abhilash-goud</a>
         `,
         "GitHub": `
           </> <b>GitHub Profile</b>
-          <br>• <a href="https://github.com/yourusername" class="chat-link" target="_blank">github.com/yourusername</a>
+          <br>• <a href="https://github.com/abhi-1-byte" class="chat-link" target="_blank">github.com/abhi-1-byte</a>
+        `,
+        "Phone": `
+          📞 <b>Phone Number</b>
+          <br>• <a href="tel:+916309719726" class="chat-link">+91 6309719726</a>
         `
       }
     };
