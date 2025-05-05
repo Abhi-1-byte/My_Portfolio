@@ -133,6 +133,30 @@
       font-size: 1.1rem;
       margin-bottom: 20px;
     }
+    /* New styles for skills and projects boxes */
+    #skills p, #projects p {
+      background-color: #f0f0f0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      display: inline-block;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode #skills p, 
+    body.dark-mode #projects p {
+      background-color: #333;
+    }
+
+    #skills p:hover, #projects p:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    body.dark-mode #skills p:hover,
+    body.dark-mode #projects p:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
 
     /* Chat Assistant */
     #chat-btn {
