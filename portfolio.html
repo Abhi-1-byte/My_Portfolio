@@ -134,70 +134,54 @@
       margin-bottom: 20px;
     }
     /* New styles for skills and projects boxes */
-      #skills, #projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    #skills p, #projects p {
-      width: 150mm;
-      height: 200mm;
+     #skills p, #projects p {
+      width: 150px;  /* Reduced from mm to px for better control */
+      height: 80px;
       background-color: #f0f0f0;
-      padding: 20px;
-      border-radius: 15px;
+      padding: 12px;
+      border-radius: 10px;
       margin: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      font-size: 1.2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
+      font-size: 1rem;
     }
 
     body.dark-mode #skills p, 
     body.dark-mode #projects p {
       background-color: #333;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
     #skills p:hover, #projects p:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
 
     body.dark-mode #skills p:hover,
     body.dark-mode #projects p:hover {
-      box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
 
     /* Responsive adjustments */
-    @media (max-width: 1200px) {
-      #skills p, #projects p {
-        width: 120mm;
-        height: 160mm;
-      }
-    }
-
     @media (max-width: 768px) {
       #skills p, #projects p {
-        width: 100mm;
-        height: 140mm;
-        font-size: 1.1rem;
+        width: 120px;
+        height: 70px;
+        font-size: 0.9rem;
       }
     }
 
     @media (max-width: 480px) {
       #skills, #projects {
-        flex-direction: column;
+        gap: 8px;
       }
       #skills p, #projects p {
-        width: 100%;
-        height: auto;
-        min-height: 100mm;
-        max-height: 200mm;
+        width: calc(50% - 10px);
+        height: 60px;
       }
     }
 
