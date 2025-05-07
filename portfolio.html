@@ -134,57 +134,62 @@
       margin-bottom: 20px;
     }
     /* New styles for skills and projects boxes */
-     #skills p, #projects p {
-      width: 150px;  /* Reduced from mm to px for better control */
-      height: 80px;
+     /* Horizontal box layout */
+    #skills, #projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    #skills p, #projects p {
+      min-width: 240px;  /* About 2.5 inches wide */
+      height: 100px;
       background-color: #f0f0f0;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 15px 20px;
+      border-radius: 12px;
       margin: 0;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: all 0.2s ease;
-      font-size: 1rem;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
     }
 
     body.dark-mode #skills p, 
     body.dark-mode #projects p {
       background-color: #333;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
 
     #skills p:hover, #projects p:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
 
     body.dark-mode #skills p:hover,
     body.dark-mode #projects p:hover {
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     }
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
       #skills p, #projects p {
-        width: 120px;
-        height: 70px;
-        font-size: 0.9rem;
+        min-width: 200px;
+        height: 90px;
       }
     }
 
     @media (max-width: 480px) {
       #skills, #projects {
-        gap: 8px;
+        gap: 10px;
       }
       #skills p, #projects p {
-        width: calc(50% - 10px);
-        height: 60px;
+        min-width: calc(50% - 10px);
+        height: 80px;
+        font-size: 1rem;
       }
     }
-
     /* Chat Assistant */
     #chat-btn {
       position: fixed;
