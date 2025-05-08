@@ -636,15 +636,28 @@
       }
     }
     // skills 
-    function selectSkill(element) {
-      // Remove selection from all skills first
-      document.querySelectorAll('.skill-box').forEach(box => {
-        box.classList.remove('selected');
-      });
-      
-      // Add selection to clicked skill
-      element.classList.add('selected');
+     function toggleSkill(element) {
+      // If already selected, unselect it
+      if(element.classList.contains('selected')) {
+        element.classList.remove('selected');
+      } 
+      // Otherwise unselect all and select this one
+      else {
+        document.querySelectorAll('.skill-box').forEach(box => {
+          box.classList.remove('selected');
+        });
+        element.classList.add('selected');
+      }
     }
+
+    // Optional: Add keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if(e.key === 'Escape') {
+        document.querySelectorAll('.skill-box').forEach(box => {
+          box.classList.remove('selected');
+        });
+      }
+    });
   </script>
 </body>
 </html>
