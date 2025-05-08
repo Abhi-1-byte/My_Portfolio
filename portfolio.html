@@ -126,13 +126,6 @@
       font-size: 2rem;
       margin-bottom: 20px;
     }
-
-    .main-content p {
-      max-width: 800px;
-      line-height: 1.8;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
     /* New styles for skills and projects boxes */
     .main-content p {
       max-width: 800px;
@@ -475,13 +468,26 @@
   
   
    <section id="skills">
-    <h2>Skills</h2>
-     <div class="skills-container">
-      <p>➥ C++</p>
-      <p>➥ Data Structures</p>
-      <p>➥ Python</p>
-      <p>➥ System Design (Learning)</p>
-  </section>
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <div class="skill-box" data-skill="cpp" onclick="selectSkill(this)">
+          <i class="skill-icon fa-brands fa-cuttlefish"></i>
+          <span>➥ C++</span>
+        </div>
+        <div class="skill-box" data-skill="dsa" onclick="selectSkill(this)">
+          <i class="skill-icon fa-solid fa-diagram-project"></i>
+          <span>➥ Data Structures</span>
+        </div>
+        <div class="skill-box" data-skill="python" onclick="selectSkill(this)">
+          <i class="skill-icon fa-brands fa-python"></i>
+          <span>➥ Python</span>
+        </div>
+        <div class="skill-box" data-skill="system-design" onclick="selectSkill(this)">
+          <i class="skill-icon fa-solid fa-network-wired"></i>
+          <span>➥ System Design (Learning)</span>
+        </div>
+      </div>
+     </section>
      
   <section id="projects">
     <h2>Projects</h2>
@@ -657,6 +663,24 @@
         showMainMenu();
       }
     }
+    // Skill selection functionality
+    function selectSkill(element) {
+      // Remove selected class from all skills
+      document.querySelectorAll('.skill-box').forEach(box => {
+        box.classList.remove('selected');
+      });
+      
+      // Add selected class to clicked skill
+      element.classList.add('selected');
+    }
+
+    // Initialize first skill as selected by default
+    document.addEventListener('DOMContentLoaded', function() {
+      const firstSkill = document.querySelector('.skill-box');
+      if (firstSkill) {
+        firstSkill.classList.add('selected');
+      }
+    });
   </script>
 </body>
 </html>
