@@ -471,7 +471,7 @@
       <h2>Skills</h2>
       <div class="skills-container">
         <div class="skill-box" data-skill="cpp" onclick="selectSkill(this)">
-          <i class="skill-icon fa-brands fa-cuttlefish"></i>
+          <i class="skill-icon fa-brands fa-cpp"></i>
           <span>➥ C++</span>
         </div>
         <div class="skill-box" data-skill="dsa" onclick="selectSkill(this)">
@@ -665,22 +665,14 @@
     }
     // Skill selection functionality
     function selectSkill(element) {
-      // Remove selected class from all skills
+      // Remove selection from all skills first
       document.querySelectorAll('.skill-box').forEach(box => {
         box.classList.remove('selected');
       });
       
-      // Add selected class to clicked skill
+      // Add selection to clicked skill
       element.classList.add('selected');
     }
-
-    // Initialize first skill as selected by default
-    document.addEventListener('DOMContentLoaded', function() {
-      const firstSkill = document.querySelector('.skill-box');
-      if (firstSkill) {
-        firstSkill.classList.add('selected');
-      }
-    });
   </script>
 </body>
 </html>
