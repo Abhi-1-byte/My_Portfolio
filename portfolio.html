@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <title>Atikam Abhilash Goud - Portfolio</title>
   <style>
     * {
@@ -23,7 +24,7 @@
       color: #e0e0e0;
     }
 
-    /* Header / Blue Box */
+    /* Header */
     .blue-box {
       position: sticky;
       top: 0;
@@ -133,7 +134,8 @@
       font-size: 1.1rem;
       margin-bottom: 20px;
     }
-    /* New styles for skills and projects boxes */
+
+    /* Skills Section */
     .skills-container {
       display: flex;
       flex-wrap: wrap;
@@ -187,30 +189,35 @@
 
     /* Skill-specific colors */
     .skill-box[data-skill="cpp"] { --skill-color: #00599C; }
+    .skill-box[data-skill="dsa"] { --skill-color: #FFA116; }
     .skill-box[data-skill="python"] { --skill-color: #3776AB; }
-    .skill-box[data-skill="dsa"] { --skill-color: #FFA116; }    
     .skill-box[data-skill="system-design"] { --skill-color: #563D7C; }
-    
-    #projects p {
-      background-color: #f0f0f0;
-      padding: 10px 15px;
-      border-radius: 8px;
-      display: inline-block;
-      margin: 5px 0;
-      transition: all 0.3s ease;
-    }
-    body.dark-mode #projects p {
-      background-color: #333;
-    }
-    #projects p:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    body.dark-mode #projects p:hover {
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+
+    /* Chat Assistant (existing styles remain) */
+    /* ... */
+
+    @media (max-width: 768px) {
+      .skill-box {
+        width: 150px;
+        height: 150px;
+      }
     }
 
-    /* Chat Assistant */
+    @media (max-width: 480px) {
+      .skills-container {
+        justify-content: center;
+      }
+      .skill-box {
+        width: 130px;
+        height: 130px;
+        padding: 15px;
+      }
+      .skill-icon-container {
+        width: 60px;
+        height: 60px;
+      }
+    }
+         /* Chat Assistant */
     #chat-btn {
       position: fixed;
       bottom: 20px;
@@ -354,45 +361,35 @@
     body.dark-mode .main-btn {
       background: #00bfff;
     }
-   @media (max-width: 768px) {
-      .skill-box {
-        width: 150px;
-        height: 150px;
-      }
-    }
 
-    @media (max-width: 480px) {
-      .skills-container {
-        justify-content: center;
+    @media (max-width: 600px) {
+      .blue-box {
+        flex-direction: column;
+        text-align: center;
       }
-      .skill-box {
-        width: 130px;
-        height: 130px;
-        padding: 15px;
-      }
-      .skill-icon-container {
-        width: 60px;
-        height: 60px;
-      }
+
       #chatbox {
         width: 90%;
         right: 5%;
       }
     }
+
+       
   </style>
 </head>
 <body>
- <!-- Welcome Page -->
+  <!-- Welcome Page -->
   <section class="welcome-section">
     <h1>Welcome to My World</h1>
   </section>
-  <!-- Sticky Blue Header -->
+
+  <!-- Header -->
   <div class="blue-box">
     <div class="logo">Atikam Abhilash Goud</div>
     <div class="icons">
       <a href="https://github.com/abhi-1-byte" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/atikam-abhilash-goud-aa7a021b3" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://www.instagram.com/urs__abhii__?igsh=d2dtNnRqM25oMTJp" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.instagram.com/urs_abhii_?igsh=d2dtNnRqM25oMTJp" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="mailto:abhigoud8459@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
       <a href="tel:+916309719726" title="Phone"><i class="fas fa-phone"></i></a>
       <button class="dark-toggle" onclick="toggleDarkMode()">☀︎</button>
@@ -400,14 +397,13 @@
   </div>
 
   <!-- Main Content -->
-  <!-- Section 2 -->
   <section class="main-content">
     <h2>About Me</h2>
     <p>➥ I am Abhilash, a passionate developer and designer who builds beautiful, functional, and user-centric websites and systems.</p>
     <p>➥ My work spans both frontend and backend development, and I enjoy solving real-world problems through technology.</p>
     <p>➥ I focus on clean code, system design, and performance optimization in every project.</p>
-  
-      <section id="skills">
+
+    <section id="skills">
       <h2>Skills</h2>
       <div class="skills-container">
         <div class="skill-box" data-skill="cpp" onclick="toggleSkillSelection(this)">
@@ -416,21 +412,7 @@
           </div>
           <div class="skill-text">➥ C++</div>
         </div>
-        
-   <div class="skill-box" data-skill="python" onclick="toggleSkillSelection(this)">
-          <div class="skill-icon-container">
-            <lottie-player
-                src="https://assets1.lottiefiles.com/packages/lf20_2cwDXD.json"
-              background="transparent"
-              speed="1"
-              style="width: 100%; height: 100%;"
-              loop
-              autoplay>
-            </lottie-player>
-          </div>
-          <div class="skill-text">➥ Python</div>
-     
-        </div>
+
         <div class="skill-box" data-skill="dsa" onclick="toggleSkillSelection(this)">
           <div class="skill-icon-container">
             <lottie-player
@@ -445,10 +427,24 @@
           <div class="skill-text">➥ Data Structures</div>
         </div>
 
+        <div class="skill-box" data-skill="python" onclick="toggleSkillSelection(this)">
+          <div class="skill-icon-container">
+            <lottie-player
+              src="https://assets1.lottiefiles.com/packages/lf20_2cwDXD.json"
+              background="transparent"
+              speed="1"
+              style="width: 100%; height: 100%;"
+              loop
+              autoplay>
+            </lottie-player>
+          </div>
+          <div class="skill-text">➥ Python</div>
+        </div>
+
         <div class="skill-box" data-skill="system-design" onclick="toggleSkillSelection(this)">
           <div class="skill-icon-container">
             <lottie-player
-            src="https://assets1.lottiefiles.com/packages/lf20_2cwDXD.json"
+              src="https://assets1.lottiefiles.com/packages/lf20_uk4B9T.json"
               background="transparent"
               speed="1"
               style="width: 100%; height: 100%;"
@@ -460,26 +456,27 @@
         </div>
       </div>
     </section>
- 
-     
-  <section id="projects">
-    <h2>Projects</h2>
+
+    <!-- Other sections remain unchanged -->
+    <section id="projects">
+      <h2>Projects</h2>
       <p>➥ Location Tracker</p>
-      <p>➥ Portfopo Website</p>
+      <p>➥ Portfolio Website</p>
       <p>➥ Personal GPT</p>
+    </section>
+
+    <section id="experience">
+      <h2>Work Experience</h2>
+      <p>➥ Currently building personal projects and enhancing skills.</p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <p>➥ B.tech from Gurunanak Institute Of Technology</p>
+      <p>➥ Intermediate from S.R Junior College</p>
+    </section>
   </section>
 
-  <section id="experience">
-    <h2>Work Experience</h2>
-    <p>➥ Currently building personal projects and enhancing skills.</p>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-    <p>➥ B.tech from Gurunanak Institute Of Technology</p>
-   <p>➥ Intermediate from S.R Junior College</p>
-  </section>
-  </section>
 
   <!-- Chat Assistant -->
   <div id="chat-btn">💬</div>
@@ -635,26 +632,37 @@
         showMainMenu();
       }
     }
-    // skills 
-     function toggleSkill(element) {
-      // If already selected, unselect it
-      if(element.classList.contains('selected')) {
-        element.classList.remove('selected');
-      } 
-      // Otherwise unselect all and select this one
-      else {
-        document.querySelectorAll('.skill-box').forEach(box => {
-          box.classList.remove('selected');
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
+    }
+
+    // Check for saved dark mode preference
+    if (localStorage.getItem("darkMode") === "enabled") {
+      document.body.classList.add("dark-mode");
+    }
+
+    // Skill Selection Toggle
+    function toggleSkillSelection(element) {
+      if (element.classList.contains("selected")) {
+        element.classList.remove("selected");
+      } else {
+        // Remove selection from all skills first
+        document.querySelectorAll(".skill-box").forEach(box => {
+          box.classList.remove("selected");
         });
-        element.classList.add('selected');
+        // Add selection to clicked skill
+        element.classList.add("selected");
       }
     }
 
-    // Optional: Add keyboard navigation
-    document.addEventListener('keydown', function(e) {
-      if(e.key === 'Escape') {
-        document.querySelectorAll('.skill-box').forEach(box => {
-          box.classList.remove('selected');
+    // Optional: Clear all selections with Escape key
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        document.querySelectorAll(".skill-box").forEach(box => {
+          box.classList.remove("selected");
         });
       }
     });
