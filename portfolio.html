@@ -134,7 +134,7 @@
       margin-bottom: 20px;
     }
     /* New styles for skills and projects boxes */
-     .main-content p {
+    .main-content p {
       max-width: 800px;
       line-height: 1.8;
       font-size: 1.1rem;
@@ -154,9 +154,97 @@
       margin-top: 15px;
     }
 
-    #skills p, #projects p {
-      min-width: 100px;
-      height: 200px;
+    /* Skill box styling */
+    .skill-box {
+      min-width: 240px;
+      height: 100px;
+      background-color: #f0f0f0;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: transparent;
+      transition: all 0.3s ease;
+    }
+
+    .skill-box:hover::before,
+    .skill-box.selected::before {
+      width: 8px;
+    }
+
+    /* Individual skill colors */
+    .skill-box[data-skill="cpp"]::before {
+      background-color: #00599C; /* C++ blue */
+    }
+    .skill-box[data-skill="dsa"]::before {
+      background-color: #FFA116; /* Orange */
+    }
+    .skill-box[data-skill="python"]::before {
+      background-color: #3776AB; /* Python blue */
+    }
+    .skill-box[data-skill="system-design"]::before {
+      background-color: #563D7C; /* Purple */
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      margin-right: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-box:hover .skill-icon,
+    .skill-box.selected .skill-icon {
+      transform: scale(1.2);
+    }
+
+    /* Skill icons colors */
+    .skill-box[data-skill="cpp"] .skill-icon {
+      color: #00599C; /* C++ blue */
+    }
+    .skill-box[data-skill="dsa"] .skill-icon {
+      color: #FFA116; /* Orange */
+    }
+    .skill-box[data-skill="python"] .skill-icon {
+      color: #3776AB; /* Python blue */
+    }
+    .skill-box[data-skill="system-design"] .skill-icon {
+      color: #563D7C; /* Purple */
+    }
+
+    .skill-box.selected {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+    body.dark-mode .skill-box {
+      background-color: #333;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    body.dark-mode .skill-box.selected {
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Projects box styling (unchanged) */
+    #projects p {
+      min-width: 240px;
+      height: 100px;
       background-color: #f0f0f0;
       padding: 15px 20px;
       border-radius: 12px;
@@ -168,21 +256,20 @@
       font-size: 1.1rem;
     }
 
-    body.dark-mode #skills p, 
     body.dark-mode #projects p {
       background-color: #333;
       box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
 
-    #skills p:hover, #projects p:hover {
+    #projects p:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
 
-    body.dark-mode #skills p:hover,
     body.dark-mode #projects p:hover {
       box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     }
+
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
