@@ -111,7 +111,66 @@
     body.dark-mode .welcome-section h1 {
       color: white;
     }
+       /* Hamburger Menu Styles */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1000;
+}
 
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .bar {
+  background-color: #00bfff;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100vh;
+  background-color: #007bff;
+  padding: 80px 20px 20px;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+body.dark-mode .mobile-menu {
+  background-color: #222;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu a {
+  display: block;
+  color: white;
+  padding: 15px 0;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .icons a:not(:last-child) {
+    display: none;
+  }
+}
     /* Main Content */
     .main-content {
       padding: 100px 20px;
@@ -470,6 +529,11 @@ body.dark-mode .project-link:hover {
 
   <!-- Header -->
   <div class="blue-box">
+    <div class="menu-toggle" onclick="toggleMenu()">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
     <div class="logo">Atikam Abhilash Goud</div>
     <div class="icons">
       <a href="https://github.com/abhi-1-byte" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
@@ -621,6 +685,24 @@ body.dark-mode .project-link:hover {
   </div>
 
   <script>
+         function toggleMenu() {
+  const menu = document.querySelector('.mobile-menu');
+  menu.classList.toggle('active');
+  
+  // Toggle hamburger to X
+  const bars = document.querySelectorAll('.bar');
+  if (menu.classList.contains('active')) {
+    bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    bars[1].style.opacity = '0';
+    bars[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+  } else {
+    bars.forEach(bar => {
+      bar.style.transform = 'rotate(0) translate(0, 0)';
+      bar.style.opacity = '1';
+    });
+  }
+}
+       
     // Dark Mode Functionality with Local Storage
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
