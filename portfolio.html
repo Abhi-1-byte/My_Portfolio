@@ -217,6 +217,91 @@
         height: 60px;
       }
     }
+     /* Projects Section CSS*/
+       /* Projects Section Styles */
+.project-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.project-box {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .project-box {
+  background-color: #2a2a2a;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.project-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.project-box h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+body.dark-mode .project-box h3 {
+  color: #00bfff;
+}
+
+.project-content {
+  line-height: 1.7;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s;
+}
+
+body.dark-mode .project-link {
+  background-color: #333;
+  color: #ddd;
+}
+
+.project-link:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+body.dark-mode .project-link:hover {
+  background-color: #00bfff;
+  color: #121212;
+}
+
+@media (max-width: 768px) {
+  .project-box {
+    padding: 15px;
+  }
+  
+  .project-links {
+    gap: 10px;
+  }
+}
+    
          /* Chat Assistant */
     #chat-btn {
       position: fixed;
@@ -456,13 +541,60 @@
       </div>
     </section>
 
-    <!-- Other sections remain unchanged -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>➥ Location Tracker</p>
-      <p>➥ Portfolio Website</p>
-      <p>➥ Personal GPT</p>
-    </section>
+    <!-- projects section-->
+      <section id="projects">
+  <h2>Projects</h2>
+  
+  <div class="project-container">
+    <!-- Project 1 -->
+    <div class="project-box">
+      <h3>1. Portfolio Website with AI Integration</h3>
+      <div class="project-content">
+        <p>➥ A responsive portfolio website featuring AI-powered chat assistant and dynamic content</p>
+        <div class="project-links">
+          <a href="https://github.com/abhi-1-byte/portfolio" target="_blank" class="project-link">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+          <a href="https://github.com/abhi-1-byte/portfolio" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Source Code
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-box">
+      <h3>2. Loco Guard - Railway Safety System</h3>
+      <div class="project-content">
+        <p>➥ An IoT-based safety system for railway track monitoring and accident prevention</p>
+        <div class="project-links">
+          <a href="https://github.com/abhi-1-byte/loco-guard" target="_blank" class="project-link">
+            <i class="fas fa-external-link-alt"></i> Project Details
+          </a>
+          <a href="https://github.com/abhi-1-byte/loco-guard" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Source Code
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-box">
+      <h3>3. Personal GPT Assistant</h3>
+      <div class="project-content">
+        <p>➥ Custom AI assistant built with OpenAI API for personal productivity</p>
+        <div class="project-links">
+          <a href="#" class="project-link">
+            <i class="fas fa-external-link-alt"></i> Demo Video
+          </a>
+          <a href="#" class="project-link">
+            <i class="fab fa-github"></i> Private Repository
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="experience">
       <h2>Work Experience</h2>
