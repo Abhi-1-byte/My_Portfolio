@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <title>Atikam Abhilash Goud - Portfolio</title>
   <style>
@@ -23,20 +23,20 @@
       background-color: #121212;
       color: #e0e0e0;
     }
-
-    /* Header */
-    .blue-box {
-      position: sticky;
-      top: 0;
-      background-color: #007bff;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 999;
-    }
+ .sticky-parent {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays above content */
+}
+.blue-box {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
     body.dark-mode .blue-box {
       background-color: #222;
@@ -88,6 +88,54 @@
       color: #121212;
     }
 
+    /* Menu Button */
+    .menu-btn {
+      background: none;
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-right: 20px;
+      transition: transform 0.2s;
+    }
+
+    body.dark-mode .menu-btn {
+      color: #00bfff;
+    }
+
+    .menu-btn:hover {
+      transform: scale(1.2);
+    }
+
+    /* Sidebar Menu */
+  .sidebar {
+    position: absolute;  /* Relative to sticky-parent */
+    top: 100%;          /* Directly below header */
+    left: -270px;
+    width: 250px;
+    max-height: calc(100vh - 70px); /* Prevent overflow */
+    background: #007bff;
+    transition: left 0.3s ease;
+    overflow-y: auto;   /* Scroll if too many items */
+}
+
+    body.dark-mode .sidebar {
+      background-color: #222;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: block;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
     /* Welcome section */
     .welcome-section {
       height: 100vh;
@@ -95,7 +143,7 @@
       justify-content: center;
       align-items: center;
       background: linear-gradient(to bottom, #e6f0ff, #ffffff);
-      transition: background 0.3s;
+      transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     body.dark-mode .welcome-section {
@@ -111,66 +159,7 @@
     body.dark-mode .welcome-section h1 {
       color: white;
     }
-       /* Hamburger Menu Styles */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-  cursor: pointer;
-  z-index: 1000;
-}
 
-.bar {
-  height: 3px;
-  width: 100%;
-  background-color: white;
-  transition: all 0.3s ease;
-}
-
-body.dark-mode .bar {
-  background-color: #00bfff;
-}
-
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -250px;
-  width: 250px;
-  height: 100vh;
-  background-color: #007bff;
-  padding: 80px 20px 20px;
-  transition: right 0.3s ease;
-  z-index: 999;
-}
-
-body.dark-mode .mobile-menu {
-  background-color: #222;
-}
-
-.mobile-menu.active {
-  right: 0;
-}
-
-.mobile-menu a {
-  display: block;
-  color: white;
-  padding: 15px 0;
-  text-decoration: none;
-  font-size: 1.1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
-  
-  .icons a:not(:last-child) {
-    display: none;
-  }
-}
     /* Main Content */
     .main-content {
       padding: 100px 20px;
@@ -252,9 +241,6 @@ body.dark-mode .mobile-menu {
     .skill-box[data-skill="python"] { --skill-color: #3776AB; }
     .skill-box[data-skill="system-design"] { --skill-color: #563D7C; }
 
-    /* Chat Assistant (existing styles remain) */
-    /* ... */
-
     @media (max-width: 768px) {
       .skill-box {
         width: 150px;
@@ -276,92 +262,91 @@ body.dark-mode .mobile-menu {
         height: 60px;
       }
     }
-     /* Projects Section CSS*/
-       /* Projects Section Styles */
-.project-container {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin-top: 20px;
-}
 
-.project-box {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+    /* Projects Section */
+    .project-container {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin-top: 20px;
+    }
 
-body.dark-mode .project-box {
-  background-color: #2a2a2a;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
+    .project-box {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-.project-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
+    body.dark-mode .project-box {
+      background-color: #2a2a2a;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
 
-.project-box h3 {
-  color: #007bff;
-  margin-bottom: 15px;
-  font-size: 1.3rem;
-}
+    .project-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
 
-body.dark-mode .project-box h3 {
-  color: #00bfff;
-}
+    .project-box h3 {
+      color: #007bff;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
 
-.project-content {
-  line-height: 1.7;
-}
+    body.dark-mode .project-box h3 {
+      color: #00bfff;
+    }
 
-.project-links {
-  display: flex;
-  gap: 15px;
-  margin-top: 15px;
-  flex-wrap: wrap;
-}
+    .project-content {
+      line-height: 1.7;
+    }
 
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 8px 15px;
-  background-color: #f0f0f0;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #333;
-  transition: all 0.2s;
-}
+    .project-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
 
-body.dark-mode .project-link {
-  background-color: #333;
-  color: #ddd;
-}
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 15px;
+      background-color: #f0f0f0;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.2s;
+    }
 
-.project-link:hover {
-  background-color: #007bff;
-  color: white;
-}
+    body.dark-mode .project-link {
+      background-color: #333;
+      color: #ddd;
+    }
 
-body.dark-mode .project-link:hover {
-  background-color: #00bfff;
-  color: #121212;
-}
+    .project-link:hover {
+      background-color: #007bff;
+      color: white;
+    }
 
-@media (max-width: 768px) {
-  .project-box {
-    padding: 15px;
-  }
-  
-  .project-links {
-    gap: 10px;
-  }
-}
-    
-         /* Chat Assistant */
+    body.dark-mode .project-link:hover {
+      background-color: #00bfff;
+      color: #121212;
+    }
+
+    @media (max-width: 768px) {
+      .project-box {
+        padding: 15px;
+      }
+      .project-links {
+        gap: 10px;
+      }
+    }
+
+    /* Chat Assistant */
     #chat-btn {
       position: fixed;
       bottom: 20px;
@@ -506,19 +491,21 @@ body.dark-mode .project-link:hover {
       background: #00bfff;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .blue-box {
-        flex-direction: column;
-        text-align: center;
+        padding: 15px;
       }
+      .logo {
+        font-size: 1.2rem;
+      }
+    }
 
+    @media (max-width: 600px) {
       #chatbox {
         width: 90%;
         right: 5%;
       }
     }
-
-       
   </style>
 </head>
 <body>
@@ -526,15 +513,13 @@ body.dark-mode .project-link:hover {
   <section class="welcome-section">
     <h1>Welcome to My World</h1>
   </section>
-
+<div class = "sticky-parent">
   <!-- Header -->
   <div class="blue-box">
-    <div class="menu-toggle" onclick="toggleMenu()">
-  <div class="bar"></div>
-  <div class="bar"></div>
-  <div class="bar"></div>
-      </div>
-    <div class="logo">Atikam Abhilash Goud</div>
+    <div style="display: flex; align-items: center;">
+      <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+      <div class="logo">Atikam Abhilash Goud</div>
+    </div>
     <div class="icons">
       <a href="https://github.com/abhi-1-byte" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/atikam-abhilash-goud-aa7a021b3" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -545,8 +530,18 @@ body.dark-mode .project-link:hover {
     </div>
   </div>
 
+  <!-- Sidebar Menu -->
+  <div class="sidebar" id="sidebar">
+    <a href="#" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About Me</a>
+    <a href="#skills" onclick="toggleMenu()">Skills</a>
+    <a href="#projects" onclick="toggleMenu()">Projects</a>
+    <a href="#experience" onclick="toggleMenu()">Experience</a>
+    <a href="#education" onclick="toggleMenu()">Education</a>
+  </div>
+</div>
   <!-- Main Content -->
-  <section class="main-content">
+  <section class="main-content" id="about">
     <h2>About Me</h2>
     <p>➥ I am Abhilash, a passionate developer and designer who builds beautiful, functional, and user-centric websites and systems.</p>
     <p>➥ My work spans both frontend and backend development, and I enjoy solving real-world problems through technology.</p>
@@ -561,7 +556,7 @@ body.dark-mode .project-link:hover {
           </div>
           <div class="skill-text">➥ C++</div>
         </div>
-      <div class="skill-box" data-skill="python" onclick="toggleSkillSelection(this)">
+        <div class="skill-box" data-skill="python" onclick="toggleSkillSelection(this)">
           <div class="skill-icon-container">
             <lottie-player
               src="https://assets9.lottiefiles.com/packages/lf20_2znxgjyt.json"
@@ -574,7 +569,6 @@ body.dark-mode .project-link:hover {
           </div>
           <div class="skill-text">➥ Python</div>
         </div>
-        
         <div class="skill-box" data-skill="dsa" onclick="toggleSkillSelection(this)">
           <div class="skill-icon-container">
             <lottie-player
@@ -587,12 +581,11 @@ body.dark-mode .project-link:hover {
             </lottie-player>
           </div>
           <div class="skill-text">➥ Data Structures & Algorithms</div>
-        </div> 
-
+        </div>
         <div class="skill-box" data-skill="system-design" onclick="toggleSkillSelection(this)">
           <div class="skill-icon-container">
             <lottie-player
-             src="https://assets1.lottiefiles.com/packages/lf20_2cwDXD.json"
+              src="https://assets1.lottiefiles.com/packages/lf20_2cwDXD.json"
               background="transparent"
               speed="1"
               style="width: 100%; height: 100%;"
@@ -606,59 +599,56 @@ body.dark-mode .project-link:hover {
     </section>
 
     <!-- projects section-->
-      <section id="projects">
-  <h2>Projects</h2>
-  
-  <div class="project-container">
-    <!-- Project 1 -->
-    <div class="project-box">
-      <h3>1. Portfolio Website with AI Integration</h3>
-      <div class="project-content">
-        <p>➥ A responsive portfolio website featuring AI-powered chat assistant and dynamic content</p>
-        <div class="project-links">
-          <a href="https://github.com/abhi-1-byte/portfolio" target="_blank" class="project-link">
-            <i class="fas fa-external-link-alt"></i> Live Demo
-          </a>
-          <a href="https://github.com/abhi-1-byte/portfolio" target="_blank" class="project-link">
-            <i class="fab fa-github"></i> Source Code
-          </a>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-container">
+        <!-- Project 1 -->
+        <div class="project-box">
+          <h3>1. Portfolio Website with AI Integration</h3>
+          <div class="project-content">
+            <p>➥ A responsive portfolio website featuring AI-powered chat assistant and dynamic content</p>
+            <div class="project-links">
+              <a href="https://github.com/abhi-1-byte/portfolio" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+              <a href="https://github.com/abhi-1-byte/portfolio" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-box">
+          <h3>2. Loco Guard - Railway Safety System</h3>
+          <div class="project-content">
+            <p>➥ An IoT-based safety system for railway track monitoring and accident prevention</p>
+            <div class="project-links">
+              <a href="https://github.com/abhi-1-byte/loco-guard" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Project Details
+              </a>
+              <a href="https://github.com/abhi-1-byte/loco-guard" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-box">
+          <h3>3. Personal GPT Assistant</h3>
+          <div class="project-content">
+            <p>➥ Custom AI assistant built with OpenAI API for personal productivity</p>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Demo Video
+              </a>
+              <a href="#" class="project-link">
+                <i class="fab fa-github"></i> Private Repository
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="project-box">
-      <h3>2. Loco Guard - Railway Safety System</h3>
-      <div class="project-content">
-        <p>➥ An IoT-based safety system for railway track monitoring and accident prevention</p>
-        <div class="project-links">
-          <a href="https://github.com/abhi-1-byte/loco-guard" target="_blank" class="project-link">
-            <i class="fas fa-external-link-alt"></i> Project Details
-          </a>
-          <a href="https://github.com/abhi-1-byte/loco-guard" target="_blank" class="project-link">
-            <i class="fab fa-github"></i> Source Code
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="project-box">
-      <h3>3. Personal GPT Assistant</h3>
-      <div class="project-content">
-        <p>➥ Custom AI assistant built with OpenAI API for personal productivity</p>
-        <div class="project-links">
-          <a href="#" class="project-link">
-            <i class="fas fa-external-link-alt"></i> Demo Video
-          </a>
-          <a href="#" class="project-link">
-            <i class="fab fa-github"></i> Private Repository
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section id="experience">
       <h2>Work Experience</h2>
@@ -672,7 +662,6 @@ body.dark-mode .project-link:hover {
     </section>
   </section>
 
-
   <!-- Chat Assistant -->
   <div id="chat-btn">💬</div>
   <div id="chatbox">
@@ -685,24 +674,14 @@ body.dark-mode .project-link:hover {
   </div>
 
   <script>
-         function toggleMenu() {
-  const menu = document.querySelector('.mobile-menu');
-  menu.classList.toggle('active');
-  
-  // Toggle hamburger to X
-  const bars = document.querySelectorAll('.bar');
-  if (menu.classList.contains('active')) {
-    bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-    bars[1].style.opacity = '0';
-    bars[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-  } else {
-    bars.forEach(bar => {
-      bar.style.transform = 'rotate(0) translate(0, 0)';
-      bar.style.opacity = '1';
-    });
-  }
-}
-       
+    // Menu Toggle Function
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      const menuBtn = document.getElementById('menuBtn');
+      sidebar.classList.toggle('active');
+      menuBtn.textContent = sidebar.classList.contains('active') ? '✖' : '☰';
+    }
+
     // Dark Mode Functionality with Local Storage
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
@@ -846,17 +825,6 @@ body.dark-mode .project-link:hover {
       }
     }
 
-    // Dark Mode Toggle
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-      localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
-    }
-
-    // Check for saved dark mode preference
-    if (localStorage.getItem("darkMode") === "enabled") {
-      document.body.classList.add("dark-mode");
-    }
-
     // Skill Selection Toggle
     function toggleSkillSelection(element) {
       if (element.classList.contains("selected")) {
@@ -880,12 +848,5 @@ body.dark-mode .project-link:hover {
       }
     });
   </script>
-  <div class="mobile-menu">
-  <a href="#about" onclick="toggleMenu()">About Me</a>
-  <a href="#skills" onclick="toggleMenu()">Skills</a>
-  <a href="#projects" onclick="toggleMenu()">Projects</a>
-  <a href="#experience" onclick="toggleMenu()">Experience</a>
-  <a href="#education" onclick="toggleMenu()">Education</a>
-</div>
 </body>
 </html>
