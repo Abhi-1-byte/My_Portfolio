@@ -109,14 +109,14 @@
 
     /* Sidebar Menu */
   .sidebar {
-    position: absolute;  
-    top: 100%;          
+    position: absolute;  /* Relative to sticky-parent */
+    top: 100%;          /* Directly below header */
     left: -270px;
     width: 250px;
-    max-height: calc(100vh - 70px); 
+    max-height: calc(100vh - 70px); /* Prevent overflow */
     background: #007bff;
     transition: left 0.3s ease;
-    overflow-y: auto; 
+    overflow-y: auto;   /* Scroll if too many items */
 }
 
     body.dark-mode .sidebar {
@@ -159,6 +159,7 @@
     body.dark-mode .welcome-section h1 {
       color: white;
     }
+
     /* Main Content */
     .main-content {
       padding: 100px 20px;
@@ -505,25 +506,13 @@
         right: 5%;
       }
     }
-         /* Time and Date*/
-   .ist-time {
-     font-size: 1.2rem;
-     font-weight: 500;
-     color: #333;
-   }
-
-   body.dark-mode .ist-time {
-    color: white;
-   }
   </style>
 </head>
 <body>
   <!-- Welcome Page -->
   <section class="welcome-section">
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
     <h1>Welcome to My World</h1>
-    <div id="ist-datetime" class="ist-time"></div>
-  </div>
+  </section>
 <div class = "sticky-parent">
   <!-- Header -->
   <div class="blue-box">
@@ -710,27 +699,7 @@
         document.body.classList.add("dark-mode");
       }
     };
-    //Accurate Live IST Time (Telangana, India)
-    function updateISTTime() {
-    const now = new Date();
-    const options = {
-      weekday: 'short',
-      year: 'numeric',
-      month: 'short',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      timeZone: 'Asia/Kolkata',
-      hour12: true
-    };
 
-    const istString = now.toLocaleString('en-IN', options);
-    document.getElementById("ist-datetime").textContent = `🕒 ${istString}`;
-    }
-
-    setInterval(updateISTTime, 1000);
-    updateISTTime();
     // CHAT DATA (YOUR ACTUAL CONTENT)
     const chatData = {
       education: {
