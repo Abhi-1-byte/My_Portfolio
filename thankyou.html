@@ -15,5 +15,17 @@
 <body>
   <h1>Thank You!</h1>
   <p>I appreciate your feedback. Have a great day!</p>
+
+  <script>
+    // Detect page refresh (navigation type 1 = reload)
+    if (performance.navigation.type === 1) {
+      history.back(); // Go back to previous page
+    }
+
+    // For modern browsers using PerformanceNavigationTiming
+    if (performance.getEntriesByType("navigation")[0]?.type === "reload") {
+      history.back();
+    }
+  </script>
 </body>
 </html>
