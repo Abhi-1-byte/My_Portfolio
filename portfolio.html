@@ -345,6 +345,111 @@
         gap: 10px;
       }
     }
+   /*feedback*/
+    #feedback h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  body.dark-mode #feedback h2 {
+    color: #ddd;
+  }
+
+  .rating-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+  }
+
+  .rating-option {
+    flex: 1 0 18%;
+    min-width: 100px;
+    padding: 12px 5px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .rating-option:hover {
+    background-color: #f5f5f5;
+  }
+
+  .rating-option.selected {
+    border-color: #2196F3;
+    background-color: #e3f2fd;
+    box-shadow: 0 0 0 2px #bbdefb;
+  }
+
+  body.dark-mode .rating-option {
+    border-color: #444;
+    color: #ccc;
+  }
+
+  body.dark-mode .rating-option:hover {
+    background-color: #333;
+  }
+
+  body.dark-mode .rating-option.selected {
+    background-color: #0b3c61;
+    box-shadow: 0 0 0 2px #2196F3;
+  }
+
+  .rating-emoji {
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 100px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  body.dark-mode textarea {
+    background-color: #222;
+    color: #eee;
+    border-color: #444;
+  }
+
+  #submit-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  #submit-btn:hover {
+    background-color: #0b7dda;
+  }
+
+  body.dark-mode #submit-btn {
+    background-color: #00bfff;
+    color: #121212;
+  }
+
+  body.dark-mode #submit-btn:hover {
+    background-color: #009cd8;
+  }
+#feedback.main-content {
+  min-height: auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
 
     /* Chat Assistant */
     #chat-btn {
@@ -674,7 +779,48 @@ body.dark-mode .ist-time {
       <p>➥ Intermediate from S.R Junior College</p>
     </section>
   </section>
+ <!-- Feedback Section -->
+<section id="feedback" class="main-content">
+  <h2>Leave a Quick Impression</h2>
 
+  <form action="https://formsubmit.co/abhigoud8459@gmail.com" method="POST">
+    <!-- FormSubmit Config -->
+    <input type="hidden" name="_next" value="https://abhi-1-byte.github.io/My_Portfolio/thankyou.html">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Portfolio Feedback">
+
+    <div class="rating-container">
+      <label class="rating-option">
+        <input type="radio" name="rating" value="Good" style="display: none;">
+        <div class="rating-emoji">⭐</div>
+        <div>Good</div>
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="Excellent" style="display: none;">
+        <div class="rating-emoji">🌟</div>
+        <div>Excellent</div>
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="Best" style="display: none;">
+        <div class="rating-emoji">🏅</div>
+        <div>Best</div>
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="Great" style="display: none;">
+        <div class="rating-emoji">🎯</div>
+        <div>Great</div>
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="Brilliant" style="display: none;">
+        <div class="rating-emoji">💎</div>
+        <div>Brilliant</div>
+      </label>
+    </div>
+
+    <textarea name="feedback" placeholder="Optional feedback message..."></textarea>
+    <button type="submit" id="submit-btn">Submit Feedback</button>
+  </form>
+</section>
   <!-- Chat Assistant -->
   <div id="chat-btn">💬</div>
   <div id="chatbox">
@@ -733,7 +879,22 @@ function updateISTTime() {
 
 setInterval(updateISTTime, 1000);
 updateISTTime();
- 
+   // Feedback star selection
+  document.querySelectorAll('.rating-option').forEach(option => {
+    option.addEventListener('click', function () {
+      document.querySelectorAll('.rating-option').forEach(opt => opt.classList.remove('selected'));
+      this.classList.add('selected');
+      this.querySelector('input[type="radio"]').checked = true;
+    });
+  });
+
+  // Ensure rating is selected before submission
+  document.querySelector('form').addEventListener('submit', function (e) {
+    if (!document.querySelector('input[name="rating"]:checked')) {
+      e.preventDefault();
+      alert('Please select a rating before submitting');
+    }
+  });
     // CHAT DATA (YOUR ACTUAL CONTENT)
     const chatData = {
       education: {
