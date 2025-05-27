@@ -18,5 +18,4 @@ synchronization.
 6.Page Redirection on Refresh – Redirects users to the previously accessed page upon refresh.
 
 How It Works:-
-
 This implementation leverages CSS & JavaScript for UI rendering and dynamic behavior, ensuring a smooth and responsive interface.
