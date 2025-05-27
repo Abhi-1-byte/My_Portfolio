@@ -1,8 +1,8 @@
 # My_Portfolio
-Project Overview
-*This project was developed using ChatGPT and DeepSeek, incorporating advanced AI-driven optimizations. It provides a seamless user experience with various interactive features.
+Project Overview:-
+This project was developed using ChatGPT and DeepSeek, incorporating advanced AI-driven optimizations. It provides a seamless user experience with various interactive features.
 
-Features
+Features:-
 
 1.Human Verification – Ensures secure and authenticated access.
 
@@ -17,5 +17,6 @@ synchronization.
 
 6.Page Redirection on Refresh – Redirects users to the previously accessed page upon refresh.
 
-How It Works
+How It Works:-
+
 This implementation leverages CSS & JavaScript for UI rendering and dynamic behavior, ensuring a smooth and responsive interface.
